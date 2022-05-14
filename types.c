@@ -1,3 +1,4 @@
+/* Show sizes of built-in C types */
 #include <stdio.h>
 
 int main()
