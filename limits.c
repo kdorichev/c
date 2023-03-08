@@ -4,7 +4,9 @@
 
 int main()
 {
-    double avogadro = 1.0E25; // 6.022E-10;
+    double dbl = -1.1e-10;
+    printf("%lf\n", dbl);
+
     printf("Type\t\tBytes\t\t\t    Range\n");
     printf("---\n");
     printf("char\t\t %2lu\t%20d ... %d\n", sizeof(char), CHAR_MIN, CHAR_MAX);
@@ -18,7 +20,7 @@ int main()
     printf("unsign. long long%2lu\t%20u ... %llu\n", sizeof(unsigned long long), 0, ULLONG_MAX);
 
     printf("---\n");
-    printf("Double\t\t %2lu\t%20f ... %f\n", sizeof(double), DBL_MIN, DBL_MAX);
+//    printf("Double\t\t %2lu\t%20f ... %f\n", sizeof(double), DBL_MIN, DBL_MAX);
     //printf("Long double\t %2lu\t%20Lf ... %Lf\n", sizeof(double), LDBL_MIN, LDBL_MAX);
     printf("---\n");
 
@@ -28,7 +30,7 @@ int main()
     
     printf("---\n");
 
-    printf("FLT_DIG\t\t%3d\nDBL_DIG\t\t%3d\nLDBL_DIG\t%3d\n", FLT_DIG, DBL_DIG, LDBL_DIG);
-    
+//    printf("FLT_DIG\t\t%3d\nDBL_DIG\t\t%3d\nLDBL_DIG\t%3d\n", FLT_DIG, DBL_DIG, LDBL_DIG);
+    printf("%lf\n", 1.5E-10);
     return 0; 
 }
