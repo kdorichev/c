@@ -13,8 +13,8 @@ int main(void)
 	x = printf("%s", str);
 	printf("\nPrinted %d chars\n", x);
 
-	printf("Length of String is %lu\n", strlen(str));
-	printf("Size of String is %lu (including trailing \\0)\n", sizeof(str));	
+	printf("Length strlen() of String is %lu\n", strlen(str));
+	printf("Size   sizeof() of String is %lu (including trailing \\0)\n", sizeof(str));	
 
 	return 0;
 }
