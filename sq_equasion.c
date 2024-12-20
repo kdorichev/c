@@ -29,7 +29,7 @@ int main()
 	}
 
 	d = dicrim(a, b, c);
-	printf("Дискриминант D = %.3f\n", d);
+	printf("Дискриминант D = %.5f\n", d);
 
 	if (d<0){
 		printf("Корней нет\n");
