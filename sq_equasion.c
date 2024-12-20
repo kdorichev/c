@@ -1,6 +1,8 @@
+// Solve quadratic equation
 #include <stdio.h>
 #include <math.h>
 
+// Calculate discriminant
 double dicrim(double a, double b, double c)
 {
 	return b*b - 4*a*c;
@@ -37,5 +39,6 @@ int main()
 	d = sqrt(d);
 	x1 = (-b-d)/2/a;
 	x2 = (-b+d)/2/a;
-	printf("x1 = %.3f\nx2 = %.3f\n", x1, x2);
+	printf("x1 = %.5f\nx2 = %.5f\n", x1, x2);
+	return 0;
 }
