@@ -1,3 +1,7 @@
+/* Add two numbers 
+ * https://leetcode.com/problems/add-two-numbers/description/
+ */
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -52,6 +56,21 @@ ListNode* str2list(char* digitsString){
 }
 
 
+int is_all_digits(char* string)
+/* Check if all chars in a `string` are digits
+   Return 1 if true, 0 if false.
+ */
+{
+	for (unsigned i = 0; i<strlen(string); i++)
+	{
+		if (! isdigit(string[i])){
+			return 0;
+		}
+	}
+	return 1;
+}
+
+
 int main(int argc, char** argv)
 {
 	char n1[MAX_NUMBER_LEN+1];
@@ -60,7 +79,23 @@ int main(int argc, char** argv)
 	ListNode* l1 = NULL;
 	ListNode* l2 = NULL;
 
+	// TODO: Add check argv are digits
 	if (argc == 3){
+		if (is_all_digits(argv[1]))
+			printf("%s is all digits\n", argv[1]);
+		else 
+		{
+			printf("%s is not all digits\n", argv[1]);
+			return 1;
+		}
+		if (is_all_digits(argv[2]))
+			printf("%s is all digits\n", argv[2]);
+		else 
+		{
+			printf("%s is not all digits\n", argv[2]);
+			return 1;
+		}
+
 		strncpy(n1, argv[1], MAX_NUMBER_LEN);
 		strncpy(n2, argv[2], MAX_NUMBER_LEN);
 		n1[MAX_NUMBER_LEN] = '\0';
