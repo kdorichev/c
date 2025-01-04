@@ -4,9 +4,6 @@
 
 int main()
 {
-	double dbl = -1.1e-10;
-	printf("%lf\n", dbl);
-
 	printf("Type\t\tBytes\t\t\t	Range\n");
 	printf("---\n");
 	printf("char\t\t %2lu\t%20d ... %d\n", sizeof(char), CHAR_MIN, CHAR_MAX);
@@ -20,8 +17,8 @@ int main()
 	printf("unsign. long long%2lu\t%20u ... %llu\n", sizeof(unsigned long long), 0, ULLONG_MAX);
 
 	printf("---\n");
-//	printf("Double\t\t %2lu\t%20f ... %f\n", sizeof(double), DBL_MIN, DBL_MAX);
-	//printf("Long double\t %2lu\t%20Lf ... %Lf\n", sizeof(double), LDBL_MIN, LDBL_MAX);
+	printf("Double\t\t %2lu\t%20f ... %f\n", sizeof(double), DBL_MIN, DBL_MAX);
+	printf("Long double\t %2lu\t%20Lf ... %Lf\n", sizeof(double), LDBL_MIN, LDBL_MAX);
 	printf("---\n");
 
 	printf("float\t\t %2lu\t EXP(%6d...%d)\n", sizeof(float), FLT_MIN_EXP, FLT_MAX_EXP);
