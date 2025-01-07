@@ -7,7 +7,7 @@ OBJMODULES = $(SRCMODULES:.c=.o)
 
 # Compiler and compiler flags to use
 CC = clang
-CFLAGS = -Wall -pedantic -Wextra
+CFLAGS = -Wall -Wpedantic -Wextra
 
 debug: CFLAGS += -g -DDEBUG
 debug: add-two-numbers
