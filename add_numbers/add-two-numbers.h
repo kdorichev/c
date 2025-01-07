@@ -1,0 +1,1 @@
+#define MAX_NUMBER_LEN 10

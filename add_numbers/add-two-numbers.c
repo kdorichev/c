@@ -1,23 +1,21 @@
 /* Add two numbers 
  * https://leetcode.com/problems/add-two-numbers/description/
  */
-#include <ctype.h>
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "helper.h"
 
-// Definition for singly-linked list.
+#ifndef MAX_NUMBER_LEN
+#include "add-two-numbers.h"
+#endif
+
  typedef struct ListNode {
 	 int val;
 	 struct ListNode *next;
 } ListNode;
 
-// struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
-//	 struct ListNode* result = NULL;
-//	 return result;
-// }
-
-#define MAX_NUMBER_LEN 100
 
 /**
  * @brief Create a list of digits from a `digitsString`
@@ -43,31 +41,16 @@ ListNode* str2list(char* digitsString){
 			list = head; // Remember the head of the list
 
 		head->val = digitsString[i] - '0';
+#ifdef DEBUG		
 		printf("%d", head->val);
+#endif
 		head->next = NULL;
 	}
 
-	// Print the list's values
-	// for (head = list; head->next != NULL; head = list->next){
-	//	 printf("%d", head->val+'0');
-	// }
+#ifdef DEBUG		
 	printf("\n");
+#endif
 	return list;
-}
-
-
-int is_all_digits(char* string)
-/* Check if all chars in a `string` are digits
-   Return 1 if true, 0 if false.
- */
-{
-	for (unsigned i = 0; i<strlen(string); i++)
-	{
-		if (! isdigit(string[i])){
-			return 0;
-		}
-	}
-	return 1;
 }
 
 
@@ -79,22 +62,7 @@ int main(int argc, char** argv)
 	ListNode* l1 = NULL;
 	ListNode* l2 = NULL;
 
-	// TODO: Add check argv are digits
 	if (argc == 3){
-		if (is_all_digits(argv[1]))
-			printf("%s is all digits\n", argv[1]);
-		else 
-		{
-			printf("%s is not all digits\n", argv[1]);
-			return 1;
-		}
-		if (is_all_digits(argv[2]))
-			printf("%s is all digits\n", argv[2]);
-		else 
-		{
-			printf("%s is not all digits\n", argv[2]);
-			return 1;
-		}
 
 		strncpy(n1, argv[1], MAX_NUMBER_LEN);
 		strncpy(n2, argv[2], MAX_NUMBER_LEN);
@@ -115,17 +83,19 @@ int main(int argc, char** argv)
 			n2[len-1] = '\0';
 		}		
 	}
-	// printf("n1 = %s, n2 = %s\n", n1, n2);
-
+	if (!check_inputs(n1, n2)){
+		return 1;
+	}	
+#ifdef DEBUG
+	printf("n1 = %s, n2 = %s\n", n1, n2);
+#endif
 	l1 = str2list(n1);
 	l2 = str2list(n2);
 
-	// 
 	int len = (strlen(n1) > strlen (n2))? strlen(n1): strlen(n2);
 	ListNode* h1 = l1;
 	ListNode* h2 = l2;
-	ListNode* res = NULL;
-	int sum, xfer;
+	int sum, xfer = 0;
 
 	for (int i=0; i<len; i++){
 		sum = 0;
@@ -162,3 +132,4 @@ int main(int argc, char** argv)
 
 	return 0;
 }
+
