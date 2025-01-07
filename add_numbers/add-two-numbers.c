@@ -17,6 +17,19 @@
 } ListNode;
 
 
+/* Free memory allocated for `list` */
+void free_list(ListNode *list)
+{
+	ListNode *h1 = list;
+
+	do {
+		list = list->next;
+		free(h1);
+		h1 = list;
+	} while(list);
+}
+
+
 /**
  * @brief Create a list of digits from a `digitsString`
  * @param digitsString 
@@ -59,11 +72,10 @@ int main(int argc, char** argv)
 	char n1[MAX_NUMBER_LEN+1];
 	char n2[MAX_NUMBER_LEN+1];
 
-	ListNode* l1 = NULL;
-	ListNode* l2 = NULL;
+	ListNode *l1 = NULL;
+	ListNode *l2 = NULL;
 
 	if (argc == 3){
-
 		strncpy(n1, argv[1], MAX_NUMBER_LEN);
 		strncpy(n2, argv[2], MAX_NUMBER_LEN);
 		n1[MAX_NUMBER_LEN] = '\0';
@@ -93,8 +105,9 @@ int main(int argc, char** argv)
 	l2 = str2list(n2);
 
 	int len = (strlen(n1) > strlen (n2))? strlen(n1): strlen(n2);
-	ListNode* h1 = l1;
-	ListNode* h2 = l2;
+
+	ListNode *h1 = l1;
+	ListNode *h2 = l2;
 	int sum, xfer = 0;
 
 	for (int i=0; i<len; i++){
@@ -116,19 +129,18 @@ int main(int argc, char** argv)
 			sum = sum % 10;
 			xfer = 1;
 		}
+		// Print next digit of result (reversed order: right-to-left)
+		// TODO: print in normal order (left-to-right)
 		printf("%d", sum);
-		// printf("xfer = %d\n", xfer);
 
 		if (h1 != NULL)
 			h1 = h1->next;
 		if (h2 != NULL)
 			h2 = h2->next;
 	}
-	if (xfer){
-		printf("%d\n", xfer);
-	}
 	
-	// Free memory
+	free_list(l1);
+	free_list(l2);
 
 	return 0;
 }
