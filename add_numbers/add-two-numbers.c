@@ -131,12 +131,22 @@ int main(int argc, char** argv)
 		}
 		// Print next digit of result (reversed order: right-to-left)
 		// TODO: print in normal order (left-to-right)
+		// Need using two-sided list / array of size MAX_NUMBER_LEN+1 
 		printf("%d", sum);
 
 		if (h1 != NULL)
 			h1 = h1->next;
 		if (h2 != NULL)
 			h2 = h2->next;
+	}
+	if (xfer)
+	{
+		printf("1\n");
+	}
+	else
+	{
+		printf("\n");
+		
 	}
 	
 	free_list(l1);
